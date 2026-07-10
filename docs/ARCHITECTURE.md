@@ -162,6 +162,7 @@
 
 | 锚点 | 职责 | 备注 |
 |---|---|---|
+| `── 刷新永远从首页顶部开始` | 脚本最前：`scrollRestoration='manual'` + 清 hash + 瞬时回顶 | 修「刷新停在上次滚动位置」bug；分享带锚点的链接也会落回首页（预期行为） |
 | `── 滚动淡入 ──` | IntersectionObserver 给 `.reveal` 加 `.in` | 选择器已收敛为 `.reveal`（2026-07-10 整理） |
 | `顶部滚动进度线` | scroll → `#progress` 宽度 | |
 | `heroEntrance` | h1 拆 `.char` 逐字入场；双 rAF 后移除 `body.preload` | **所有开场动画的总开关**：`preload` 不移除页面就一直隐藏 |

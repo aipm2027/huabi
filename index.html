@@ -1335,6 +1335,12 @@ html.grabbing, html.grabbing * { -webkit-user-select: none !important; user-sele
 
 <script>
 document.documentElement.classList.add('js');
+/* ── 刷新永远从首页顶部开始: 禁用浏览器滚动位置恢复 + 清掉 toc 点击留下的锚点 hash ── */
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+document.documentElement.style.scrollBehavior = 'auto';   // 临时绕过 CSS smooth, 瞬时回顶不闪滚动动画
+scrollTo(0, 0);
+document.documentElement.style.scrollBehavior = '';
 /* ═══════════════════════════════════════════════════════════════════
    Huabi — 交互脚本 (零依赖 · 原生 JS)
    目录: 滚动揭示 · 进度线 · Hero 逐字入场

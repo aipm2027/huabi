@@ -84,7 +84,7 @@ CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 - budget **≥9000**：桌宠入场有 1.1s 延迟 + 持续 rAF，budget 低了会截到桌宠半透明/缺失的**假象**，别误判自己改坏了。
 - **逐像素对比不可用**：本机截图有随机 1px 整页位移（2026-07-10 空白对照实验证实，同代码连拍两张差异 ~5%）。验收 = 肉眼看关键区 + §4.4 功能自检。
 - **字体不确定**：Google Fonts 走代理时通时断，两次截图可能一次网络字体一次系统字体（全页文字都不同）。要对比截图时加 `--host-resolver-rules="MAP fonts.googleapis.com 127.0.0.1,MAP fonts.gstatic.com 127.0.0.1"` 固定为系统字体。
-- hash 滚动（`…index.html#education`）可能截出全白；要截某板块用 `--window-size` 高一点或注入 scroll。
+- **hash 已失效**：脚本会清掉锚点并强制回顶（「刷新回首页」特性），`…index.html#education` 这类 URL 一律显示首页。要截某板块：用超高 `--window-size`（如 1440×5200）整页截再裁切。
 - 心声气泡只在 1.5–6.7s 窗口显示，budget 3200 左右最容易截到。
 - 需要确定性渲染（像素对比）：注入 `*{animation-duration:.001s!important}` + `.pet{opacity:1}`。
 - macOS 没有 `timeout` 命令；多实例并发加 `--user-data-dir=/tmp/cr-x` 会挂起，**串行截图就别加**。
