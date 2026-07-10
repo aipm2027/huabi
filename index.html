@@ -23,7 +23,9 @@
   --hairline-solid: rgba(26,26,46,0.06);
   --bg: #fafafa;
   --surface: #ffffff;
-  /* 主强调色: 珊瑚 (呼应桌宠 Huabi) — 全站唯一强调色, 由 --coral 派生 */
+  /* 主强调色: 珊瑚 (呼应桌宠 Huabi) — 全站唯一强调色, 由 --coral 派生
+     ⚠ 换主色须知: 除这四个 token 外, 全文件还有几十处写死的 rgba(217,119,87,…)
+       (光晕/边框/阴影的半透明变体) — 换色需全局替换 "217,119,87" */
   --accent: #D97757;            /* eyebrow / role / 链接 / 图标 / 标签 主色 */
   --accent-soft: #f9e3d8;       /* 图标底 / 卡片 hover 浅底 (替代旧 purple-soft) */
   --accent-deep: #C15F3C;       /* hover / 加深态 */
@@ -1074,7 +1076,8 @@ html.grabbing, html.grabbing * { -webkit-user-select: none !important; user-sele
         <h2>教育背景</h2>
         <p class="section-lede">求学轨迹与主修方向。</p>
       </header>
-      <!-- 新增学历: 复制一个 .item -->
+      <!-- ▼ 内容区·教育背景 ▼ 只改文字: .when(时间) / h3(学位·专业) / .org(学校) / p(描述)
+           加一段学历 = 复制整个 <div class="item">…</div>; 别改 class 名。手册: docs/CONTENT-GUIDE.md -->
       <div class="items items-spine">
         <div class="item">
           <div class="when">2023.9 — 2027.6</div>
@@ -1093,7 +1096,9 @@ html.grabbing, html.grabbing * { -webkit-user-select: none !important; user-sele
         <h2>实习经历</h2>
         <p class="section-lede">在真实业务里打磨 AI 产品方法：能力定义、标准化与评测。</p>
       </header>
-      <!-- 新增经历: 复制一个 .item; 多个子项目用 .item-sub 分组, bullets 里用 <strong> 强调量化结果 -->
+      <!-- ▼ 内容区·实习经历 ▼ 只改文字: .when(时间) / h3(公司·职位) / .org(团队·方向·地点) / li(要点)
+           子项目小标题用 <div class="item-sub">; 量化结果包 <strong>; 尾部 .item-tags 放 2~4 个关键词
+           加一段经历 = 复制整个 <div class="item">…</div>; 别改 class 名。手册: docs/CONTENT-GUIDE.md -->
       <div class="items items-spine">
         <div class="item">
           <div class="when">2025.11 — 2026.2</div>
@@ -1132,7 +1137,8 @@ html.grabbing, html.grabbing * { -webkit-user-select: none !important; user-sele
         <h2>项目经历</h2>
         <p class="section-lede">可独立展示的作品与实验，一张卡片一个项目。</p>
       </header>
-      <!-- 新增项目: 复制一张 .proj-card; pc-link 可换成产品/仓库链接 -->
+      <!-- ▼ 内容区·项目经历 ▼ 每张 .proj-card 一个项目: .pc-kicker(时间·来源) / h3(名称) / p·li(说明) / .item-tags / .pc-link(链接)
+           加项目 = 复制整张 <article class="proj-card">…</article>; 别改 class 名。手册: docs/CONTENT-GUIDE.md -->
       <div class="proj-grid">
         <article class="proj-card">
           <div class="pc-kicker">2026.1 — 2026.3 · 腾讯未来产品经理创造营</div>
@@ -1161,7 +1167,8 @@ html.grabbing, html.grabbing * { -webkit-user-select: none !important; user-sele
         <h2>创业经历</h2>
         <p class="section-lede">从 0 到 1 的尝试：方向、角色与阶段。</p>
       </header>
-      <!-- 多段创业经历可复制整张 .venture-card -->
+      <!-- ▼ 内容区·创业经历 ▼ 只改文字: .vc-kicker(时间·基地) / h3(项目名) / .vc-role(角色) / p·li(叙述) / .vc-facts(方向·角色·阶段)
+           多段经历 = 复制整张 <article class="venture-card">…</article>。手册: docs/CONTENT-GUIDE.md -->
       <article class="venture-card">
         <div class="vc-kicker">2024.9 — 2025.9 · 松山湖 XbotPark 机器人基地（明月湖）</div>
         <h3>Mini 四足机器人</h3>
@@ -1185,7 +1192,9 @@ html.grabbing, html.grabbing * { -webkit-user-select: none !important; user-sele
         <h2>荣誉奖项</h2>
         <p class="section-lede">证书与现场实录 —— 每张图下方都有名字。</p>
       </header>
-      <!-- 图片就位后: 把 .ht-ph 那个 div 换成 <img src="honors/xxx.jpg" alt="…">, 并去掉 ht-frame 上的 ht-empty 类 -->
+      <!-- ▼ 内容区·荣誉图墙 ▼ 每个 figure = 一张图: 图片放进 honors/ 目录后,
+           把 <div class="ht-ph">…</div> 整个换成 <img src="honors/文件名.jpg" alt="说明">, 并删掉 .ht-frame 上的 ht-empty 类
+           图下名字改 figcaption 里的 <b>(标题) 和后面的小字。手册: docs/CONTENT-GUIDE.md -->
       <div class="honors-gallery">
         <div class="wall-group">
           <div class="wall-kicker">证书 · Certificates</div>
@@ -1250,6 +1259,8 @@ html.grabbing, html.grabbing * { -webkit-user-select: none !important; user-sele
         <span class="eyebrow">06 — Contact</span>
         <h2>一起聊聊</h2>
       </header>
+      <!-- ▼ 内容区·联系方式 ▼ 改卡片值 = 改各 .cc-value 文字 (邮箱/电话还要同步 href 的 mailto:/tel:)
+           ⚠ 双数据源: 桌宠名片卡读 JS 里 HUABI.contact —— 改联系方式两处都要改。手册: docs/CONTENT-GUIDE.md -->
       <div class="contact-body">
         <p class="contact-lead">开放中 · 可内推 / 合作。简历、评测体系、AI 语音与多模态产品都欢迎聊——也可以让左边的 <b>Huabi</b> 帮你递份简历。</p>
         <div class="contact-grid">
@@ -1328,7 +1339,13 @@ document.documentElement.classList.add('js');
    Huabi — 交互脚本 (零依赖 · 原生 JS)
    目录: 滚动揭示 · 进度线 · Hero 逐字入场
          · 光标光斑 / 照片视差 · 3D 体素渲染器 (window.huabiPet)
-         · 桌宠导航 (pet) · 彩蛋烟花 (fireworks)
+         · 桌宠导航 (pet) · 彩蛋烟花 (fireworks) · tocSpy
+   ───────────────────────────────────────────────────────────────────
+   全局对象速查 (不读 docs/ 也能自查):
+     HUABI            — 全站配置层: 联系方式/文案/名单/时序/参数 (就在下方)
+     window.huabiPet  — 渲染器 API: blink/doAction/flashExpr/setExpr/setGaze/setAuto/resize
+     window.huabiFx   — 行为反馈 API: gazeTo/emitTo/react (tocSpy 依赖)
+     window.__AILOGOS — 彩蛋 logo 资产 (head 里一整行 base64, 用脚本改, 别手编)
    ═══════════════════════════════════════════════════════════════════ */
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -1340,6 +1357,9 @@ document.documentElement.classList.add('js');
    配色 CSS token 在 <style> 的 :root; 桌宠体素美术资产 RECTS 在渲染器内。
    ═══════════════════════════════════════════════════════════════════ */
 const HUABI = {
+  // 联系方式 (桌宠递名片功能的数据源; 入口按钮已移除, 递送代码保留备用)
+  // ⚠ footer#contact 的四张卡片是静态 HTML —— 改联系方式要「这里 + <footer> .contact-grid」两处同步
+  contact: { wechat: 'a2627y', mail: 'aipm2027@gmail.com', phone: '152 2391 0206', github: 'aipm2027' },
   // 桌宠个性与摆位 (渲染算法本身在 huabiRenderer 内)
   pet: {
     margin: 22,               // 桌宠与视口边的最小间距(px)
@@ -1755,10 +1775,10 @@ if (fine && !reduce) {
 		    note.innerHTML =
 		      '<h3>联系方式</h3>' +
 		      '<div class="contact-note-grid">' +
-		        row('wechat', '微信 · WeChat', 'a2627y') +
-		        row('mail', '邮箱 · Email', 'aipm2027@gmail.com') +
-		        row('phone', '电话 · Phone', '152 2391 0206') +
-		        row('github', 'GitHub', 'aipm2027') +
+		        row('wechat', '微信 · WeChat', HUABI.contact.wechat) +
+		        row('mail', '邮箱 · Email', HUABI.contact.mail) +
+		        row('phone', '电话 · Phone', HUABI.contact.phone) +
+		        row('github', 'GitHub', HUABI.contact.github) +
 		      '</div>' +
 		      '<div class="contact-note-hint">点击任意处关闭</div>';
 		    document.body.appendChild(note);
