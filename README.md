@@ -4,7 +4,7 @@
 
 - `index.html` — 站点本体(HTML/CSS/JS,零依赖,浏览器打开即用)
 - `avatar.jpg` — 头像(去背景 + 轻度美颜)
-- `resume.pdf` — 简历(桌宠菜单「下载简历」下载的就是它)
+- `resume.pdf` — 简历(左栏「下载简历」按钮下载的就是它)
 - `liftsubject.swift` / `framephoto.swift` — 生成头像用的 macOS Vision 抠图/裁剪小工具(可选,非部署所需)
 
 ## 更新简历

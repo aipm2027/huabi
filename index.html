@@ -12,7 +12,7 @@
 /* ═══════════════════════════════════════════════════════════════════
    取向 A · 编辑非对称 · 左栏成型
    ───────────────────────────────────────────────────────────────────
-   紫 #6d5cff 唯一主色用狠，绿 #16e0a3 仅状态点，珊瑚 #D97757 仅桌宠。
+   珊瑚 #D97757 全站唯一强调色（呼应桌宠，紫色现仅存于烟花色板），绿 #16e0a3 仅状态点。
    Space Grotesk + Inter + Noto Sans SC。左栏 sticky 成型，正文强非对称。
    ═══════════════════════════════════════════════════════════════════ */
 
@@ -1061,7 +1061,7 @@ html.grabbing, html.grabbing * { -webkit-user-select: none !important; user-sele
                 <path d="M150 42 C96 42 72 88 72 140 C72 180 84 210 106 236 L194 236 C216 210 228 180 228 140 C228 88 204 42 150 42 Z" fill="url(#illoG)"/>
                 <ellipse cx="150" cy="152" rx="52" ry="61" fill="#ece7fb"/>
               </svg>
-              <span class="fallback-hint">示例头像 · 放一张去背的 <code>avatar.png</code> 到同目录即可自动替换</span>
+              <span class="fallback-hint">示例头像 · 放一张去背的 <code>avatar.jpg</code> 到同目录即可自动替换</span>
             </div>
           </div>
         </div>
@@ -1326,7 +1326,7 @@ html.grabbing, html.grabbing * { -webkit-user-select: none !important; user-sele
 document.documentElement.classList.add('js');
 /* ═══════════════════════════════════════════════════════════════════
    Huabi — 交互脚本 (零依赖 · 原生 JS)
-   目录: 打字机 · 滚动揭示 · 进度线 · Hero 逐字入场
+   目录: 滚动揭示 · 进度线 · Hero 逐字入场
          · 光标光斑 / 照片视差 · 3D 体素渲染器 (window.huabiPet)
          · 桌宠导航 (pet) · 彩蛋烟花 (fireworks)
    ═══════════════════════════════════════════════════════════════════ */
@@ -1956,7 +1956,7 @@ if (fine && !reduce) {
 
 		  addEventListener('resize', () => { size = el.offsetWidth || size; if (dragging || fxSummoned || deliveryActive) { px = clamp(px, margin, VW()-size-margin); py = clamp(py, margin, VH()-size-margin); } else { home = computeHome(); px = home.x; py = home.y; } place(); positionBubble(); }, { passive: true });
 
-  // ── 「录用冯贤宇 · 买一送十二」AI 天团招募 (官方 logo + 名牌 + 10s 自动关) ──
+  // ── 「录用冯贤宇 · 买一送N」AI 天团招募 (N 由 HUABI.fireworks.ais.length 派生; 官方 logo + 名牌 + 15s 自动关) ──
   let fxOn = false, fxRaf = 0;
   function fireworks(){
     const cv = document.getElementById('fireworks'); if (!cv) return;
